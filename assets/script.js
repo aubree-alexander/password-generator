@@ -4,7 +4,6 @@ var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
 var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 var specialChar = ['!', '?', '%', '#', '@', '*', '^', '$', '&', '+', '-', '.', ':', ';']
 var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-var randomPassword = ""
 
 //included in starter code
 
@@ -26,7 +25,6 @@ function generatePassword() {
   var passwordCharacters = generatePasswordCharacters(characterPreferences, passwordLength)
   //shuffling the array
   shuffleArray(passwordCharacters)
-
   return arrayToString(passwordCharacters)
 }
 
@@ -51,7 +49,7 @@ function askPasswordLength() {
 function askCharacterPreferences() {
   var characterPreferences = []
 
-  var upperConfirm = confirm("Would you like your password to include uppercase letters? Click 'OK' for yes, and 'Cancel' for no.")
+  var upperConfirm = confirm("Would you like your password to include capital letters? Click 'OK' for yes, and 'Cancel' for no.")
     if (upperConfirm) {
       characterPreferences.push(upperCase);
     }
@@ -78,16 +76,11 @@ function generatePasswordCharacters(charArray, passwordLength) {
   passwordCharacters = []
 
   while (passwordCharacters.length < passwordLength) {
-
-
     for (var i = 0; i < charArray.length; i++) {
-
-     
       if (passwordCharacters.length >= passwordLength) {
         break;
       } else {
         charTypeArray = charArray[i];
-        
         passwordCharacters.push(charTypeArray[Math.floor(Math.random() * charArray[i].length)]);
       }
     }
@@ -95,24 +88,19 @@ function generatePasswordCharacters(charArray, passwordLength) {
   return passwordCharacters;
 }
 
-
-
 function shuffleArray(array) {
-  // shuffle 3 times
-  for (var i = 0; i < 3; i++) {
     
-    for(var j = 0; j < array.length; j++){
-      var value1 = array[j];
+    for(var i = 0; i < array.length; i++){
+      var value1 = array[i];
       var randomIndex = Math.floor(Math.random()*array.length); //random index in array
 
       // switch value 1 and value 2
-      array[j] = array[randomIndex];
+      array[i] = array[randomIndex];
       array[randomIndex] = value1;
     }
-  }
 }
 
-function arrayToSTring(array) {
+function arrayToString(array){
   password = "";
   // convert password array into a string
   for (var i = 0; i < array.length; i++) {
@@ -120,7 +108,6 @@ function arrayToSTring(array) {
   }
   return password;
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
