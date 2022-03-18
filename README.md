@@ -12,4 +12,4 @@
 Aubree Alexander
 
 ## Screenshot
-<img src="./assets/images/password-generator-screenshot.png" />
+<img src="./images/password-generator-screenshot.png" />
