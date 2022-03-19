@@ -23,8 +23,6 @@ function generatePassword() {
   var characterPreferences = askCharacterPreferences();
   //character arrary based on user's choices
   var passwordCharacters = generatePasswordCharacters(characterPreferences, passwordLength)
-  //shuffling the array
-  shuffleArray(passwordCharacters)
   return arrayToString(passwordCharacters)
 }
 
@@ -54,7 +52,7 @@ function askCharacterPreferences() {
       characterPreferences.push(upperCase);
     }
 
-  var lowerConfirm = confirm("Would you like your password to include lowercase letters? Click 'OK' for yes, and 'Cancel for no.")
+  var lowerConfirm = confirm("Would you like your password to include lowercase letters? Click 'OK' for yes, and 'Cancel' for no.")
     if (lowerConfirm) {
       characterPreferences.push(lowerCase);
     }
@@ -69,9 +67,17 @@ function askCharacterPreferences() {
       characterPreferences.push(numbers);
     }
 
+    if (upperConfirm === false && lowerConfirm === false && specialCharConfirm === false && numberConfirm === false) {
+      alert("You did choose any characters to appear in your password. Please try again.")
+      return askCharacterPreferences()
+    }
+
     return characterPreferences;
 }
-  
+
+
+// generate password array
+
 function generatePasswordCharacters(charArray, passwordLength) {
   passwordCharacters = []
 
@@ -88,17 +94,7 @@ function generatePasswordCharacters(charArray, passwordLength) {
   return passwordCharacters;
 }
 
-function shuffleArray(array) {
-    
-    for(var i = 0; i < array.length; i++){
-      var value1 = array[i];
-      var randomIndex = Math.floor(Math.random()*array.length); //random index in array
-
-      // switch value 1 and value 2
-      array[i] = array[randomIndex];
-      array[randomIndex] = value1;
-    }
-}
+//convert array to string
 
 function arrayToString(array){
   password = "";
