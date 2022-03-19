@@ -33,7 +33,7 @@ function askPasswordLength() {
 
   if (passwordLength === "" || passwordLength === null) {
     alert("Please enter a valid number.")
-    return askPasswordLength();
+    return askPasswordLength()
   } else if (passwordLength < 8 || passwordLength > 128) {
     alert("Please enter a number between 8 and 128.")
     return askPasswordLength()
@@ -83,12 +83,8 @@ function generatePasswordCharacters(charArray, passwordLength) {
 
   while (passwordCharacters.length < passwordLength) {
     for (var i = 0; i < charArray.length; i++) {
-      if (passwordCharacters.length >= passwordLength) {
-        break;
-      } else {
         charTypeArray = charArray[i];
         passwordCharacters.push(charTypeArray[Math.floor(Math.random() * charArray[i].length)]);
-      }
     }
   }
   return passwordCharacters;

@@ -6,10 +6,10 @@
 * Javascript (I contributed)
 
 ## Website
-
+https://aubree-alexander.github.io/password-generator/
 
 ## Contribution
 Aubree Alexander
 
 ## Screenshot
-<img src="./images/password-generator-screenshot.png" />
+<img src="./assets/images/password-generator.png" />
